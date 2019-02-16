@@ -17,8 +17,8 @@ public abstract class Animal {
         this.alive = true;
     }
 
-    int eat(Food food) {
-        switch (food){
+    int reactToFood(Food food) {
+        switch (food) {
             case MEAT:
                 return reactToMeat;
             case FRUIT:
@@ -27,5 +27,24 @@ public abstract class Animal {
                 return reactToVegetable;
         }
         return 0;
+    }
+
+    void eat(Food food) {
+        int change = reactToFood(food);
+        this.weight = change + weight;
+    }
+
+    boolean isAlive() {
+        return (0 < weight && weight < overWeight);
+    }
+
+    void printData() {
+        System.out.println("Race: " + getClass().getSimpleName());
+        System.out.println("Name: " + name);
+        if (isAlive()) {
+            System.out.println("Weight: " + weight);
+        } else {
+            System.out.println("Dead :(");
+        }
     }
 }
