@@ -5,11 +5,11 @@ import hu.szaffi.app.animal.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zoo {
+class Zoo {
 
-    List<Animal> animals = new ArrayList<>();
+    private List<Animal> animals = new ArrayList<>();
 
-    public void initAnimals() {
+    void initAnimals() {
         Rabbit rabbit = new Rabbit("Nyuszo", 2);
         animals.add(rabbit);
         Hedgehog hedgehog = new Hedgehog("Sunike", 2);
@@ -20,7 +20,7 @@ public class Zoo {
         animals.add(wolf);
     }
 
-    public void simulateADay(){
+    void simulateADay(){
         Food randomFood = Food.getRandomFood();
         System.out.println(randomFood);
         for (Animal animal :
