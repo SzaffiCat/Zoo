@@ -29,18 +29,17 @@ public abstract class Animal {
         return 0;
     }
 
-    void eat(Food food) {
+    public void eat(Food food) {
         int change = reactToFood(food);
-        this.weight = change + weight;
+        this.weight += change;
     }
 
     boolean isAlive() {
-        return (0 < weight && weight < overWeight);
+        return (0 < weight && weight <= overWeight);
     }
 
-    void printData() {
-        System.out.println("Race: " + getClass().getSimpleName());
-        System.out.println("Name: " + name);
+    public void printData() {
+        System.out.println(getClass().getSimpleName() + " / " + name + ": ");
         if (isAlive()) {
             System.out.println("Weight: " + weight);
         } else {
